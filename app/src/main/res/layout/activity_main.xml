@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.easylabs.globalcoachsystemandroid.activity.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlUser"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+
+                        <TextView
+                            android:id="@+id/tvName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:text="Имя:"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/btChangeName"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/account_edit" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+
+                        <TextView
+                            android:id="@+id/tvSecondName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:text="Фамилия:"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/btChangeSecondName"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/account_edit" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+
+                        <TextView
+                            android:id="@+id/tvAge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:text="Возраст: "
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/btChangeAge"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/account_edit" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+
+                        <TextView
+                            android:id="@+id/tvPhone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:text="Телефон: "
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/btChangePhone"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/account_edit" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+
+                        <TextView
+                            android:id="@+id/tvEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:text="Email: "
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/btChangeEmail"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/account_edit" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+
+                        <TextView
+                            android:id="@+id/tvFacebook"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:text="Facebook:"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/btChangeFacebook"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/account_edit" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+
+                        <TextView
+                            android:id="@+id/tvGooglePlus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:text="Google Plus:"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/btChangeGooglePlus"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/account_edit" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+
+                        <TextView
+                            android:id="@+id/tvSkype"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:text="Skype:"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/btChangeSkype"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/account_edit" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+
+                        <TextView
+                            android:id="@+id/tvVk"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:text="VK:"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/btChangeVk"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/account_edit" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+
+                        <TextView
+                            android:id="@+id/tvViber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:text="Viber: "
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/btChangeViber"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/account_edit" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+
+                        <TextView
+                            android:id="@+id/tvWhatsUp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:text="WhatsUp:"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/btChangeWhatsUp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/account_edit" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginTop="3dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+
+                        <TextView
+                            android:id="@+id/tvTelegram"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:text="Telegram:"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/btChangeTelegram"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/account_edit" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlStudent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btNewSkill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="55dp"
+            android:text="New Skill" />
+
+        <LinearLayout
+            android:id="@+id/llStudentSkillList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/btNewSkill"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
+
+            <ExpandableListView
+                android:id="@+id/elvUserSkills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></ExpandableListView>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlCouch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btIndicateSkill"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="55dp"
+            android:text="Indicate Skill" />
+
+        <LinearLayout
+            android:id="@+id/llCouchSkillList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/btIndicateSkill"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="90dp"
+            android:orientation="vertical">
+
+            <ExpandableListView
+                android:id="@+id/elvCouchSkillList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></ExpandableListView>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlNewRequest"
+            android:layout_width="match_parent"
+            android:layout_height="85dp">
+
+            <TextView
+                android:id="@+id/tvNewRequestTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:text="TextView" />
+
+            <Button
+                android:id="@+id/btAcceptRequest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="14dp"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/btNextRequest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="116dp"
+                android:text="0" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/navigation" />
+
+</android.support.constraint.ConstraintLayout>
