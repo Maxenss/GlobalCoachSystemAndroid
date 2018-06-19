@@ -45,6 +45,14 @@ public class JsonWorker {
             user.setLastName(userJson.getString("lastName"));
             user.setPhoneIsVisible(userJson.getBoolean("phoneIsVisible"));
             user.setEmailIsVisible(userJson.getBoolean("emailIsVisible"));
+            user.setFacebookIsVisible(userJson.getBoolean("facebookIsVisible"));
+            user.setGooglePlusIsVisible(userJson.getBoolean("googlePlusIsVisible"));
+            user.setSkypeIsVisible(userJson.getBoolean("skypeIsVisible"));
+            user.setVKIsVisible(userJson.getBoolean("vkIsVisible"));
+            user.setViberIsVisible(userJson.getBoolean("viberIsVisible"));
+            user.setWhatsUpIsVisible(userJson.getBoolean("whatsUpIsVisible"));
+            user.setTelegramIsVisible(userJson.getBoolean("telegramIsVisible"));
+
 
             JSONArray jsonLanguages = rootJson.getJSONArray("languages");
             ArrayList<Language> languages = new ArrayList<>();

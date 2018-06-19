@@ -22,7 +22,7 @@ import java.nio.channels.SeekableByteChannel;
 public class ApiWorker {
     static String protocol = "http://";
     //static String rootUrl = "wishlist-001-site1.itempurl.com/";
-    static String rootUrl = "192.168.0.104:43653/";
+    static String rootUrl = "192.168.0.103:43653/";
 
     public enum SignUpStatus {
         DATA_ERROR(0), NOT_CONNECt(1), CREATE_ACCOUNT(2), LOGIN_EXIST_ERROR(3), UNKNOWN_ERROR(4);

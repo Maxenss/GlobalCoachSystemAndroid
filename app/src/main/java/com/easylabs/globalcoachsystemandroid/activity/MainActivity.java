@@ -14,8 +14,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SimpleExpandableListAdapter;
@@ -67,6 +69,17 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvViber;
     private TextView tvWhatsUp;
     private TextView tvTelegram;
+
+    private ImageView ivPhoneVIsible;
+    private ImageView ivEmailIsVisible;
+    private ImageView ivSkypeIsVisible;
+    private ImageView ivTelegramIsVisible;
+    private ImageView ivViberIsVisible;
+    private ImageView ivWhatsUpIsVisible;
+    private ImageView ivVkIsVisible;
+    private ImageView ivFacebookIsVisible;
+    private ImageView ivGooglePlusIsVisible;
+    //////////
 
     private AlertDialog adChangeUserInfo;
 
@@ -128,6 +141,16 @@ public class MainActivity extends AppCompatActivity {
         btChangeWhatsUp = findViewById(R.id.btChangeWhatsUp);
         btChangeTelegram = findViewById(R.id.btChangeTelegram);
 
+        ivPhoneVIsible = findViewById(R.id.ivPhoneVIsible);
+        ivEmailIsVisible = findViewById(R.id.ivEmailIsVisible);
+        ivSkypeIsVisible = findViewById(R.id.ivSkypeIsVisible);
+        ivTelegramIsVisible = findViewById(R.id.ivTelegramIsVisible);
+        ivViberIsVisible = findViewById(R.id.ivViberIsVisible);
+        ivWhatsUpIsVisible = findViewById(R.id.ivWhatsUpIsVisible);
+        ivVkIsVisible = findViewById(R.id.ivVkIsVisible);
+        ivFacebookIsVisible = findViewById(R.id.ivFacebookIsVisible);
+        ivGooglePlusIsVisible = findViewById(R.id.ivGooglePlusIsVisible);
+
         tvName.setText("Name*: " + SessionData.currentUser.getFirstName());
         tvSecondName.setText("Surname*: " + SessionData.currentUser.getLastName());
         tvAge.setText("Age*: " + SessionData.currentUser.getAge());
@@ -157,36 +180,111 @@ public class MainActivity extends AppCompatActivity {
                 "Empty Field"
                 : SessionData.currentUser.getTelegram()));
 
+        ivPhoneVIsible.setBackgroundResource(
+                SessionData.currentUser.isPhoneIsVisible()
+                        ? R.drawable.eye_outline : R.drawable.eye_off_outline
+        );
+
+        ivSkypeIsVisible.setBackgroundResource(SessionData.currentUser.isPhoneIsVisible()
+                ? R.drawable.eye_outline : R.drawable.eye_off_outline);
+
+        ivTelegramIsVisible.setBackgroundResource(SessionData.currentUser.isTelegramIsVisible()
+                ? R.drawable.eye_outline : R.drawable.eye_off_outline);
+
+        ivViberIsVisible.setBackgroundResource(SessionData.currentUser.isViberIsVisible()
+                ? R.drawable.eye_outline : R.drawable.eye_off_outline);
+
+        ivWhatsUpIsVisible.setBackgroundResource(SessionData.currentUser.isWhatsUpIsVisible()
+                ? R.drawable.eye_outline : R.drawable.eye_off_outline);
+
+        ivVkIsVisible.setBackgroundResource(SessionData.currentUser.isViberIsVisible()
+                ? R.drawable.eye_outline : R.drawable.eye_off_outline);
+
+        ivFacebookIsVisible.setBackgroundResource(SessionData.currentUser.isFacebookIsVisible()
+                ? R.drawable.eye_outline : R.drawable.eye_off_outline);
+
+        ivGooglePlusIsVisible.setBackgroundResource(SessionData.currentUser.isGooglePlusIsVisible()
+                ? R.drawable.eye_outline : R.drawable.eye_off_outline);
+
         btChangeName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createAdUserInfoEdit(0, SessionData.currentUser.getFirstName());
+                createAdUserInfoEdit(0, SessionData.currentUser.getFirstName(), false);
             }
         });
 
         btChangeSecondName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createAdUserInfoEdit(1, SessionData.currentUser.getLastName());
+                createAdUserInfoEdit(1, SessionData.currentUser.getLastName(), false);
+            }
+        });
+
+        btChangePhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createAdUserInfoEdit(3, SessionData.currentUser.getPhone(), SessionData.currentUser.isPhoneIsVisible());
+            }
+        });
+
+        btChangeEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createAdUserInfoEdit(4, SessionData.currentUser.getPhone(), SessionData.currentUser.isEmailIsVisible());
+            }
+        });
+
+        btChangeSkype.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createAdUserInfoEdit(5, SessionData.currentUser.getSkype(), SessionData.currentUser.isSkypeIsVisible());
+            }
+        });
+
+        btChangeTelegram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createAdUserInfoEdit(6, SessionData.currentUser.getTelegram(), SessionData.currentUser.isTelegramIsVisible());
+            }
+        });
+
+        btChangeViber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createAdUserInfoEdit(7, SessionData.currentUser.getViber(), SessionData.currentUser.isViberIsVisible());
+            }
+        });
+
+        btChangeWhatsUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createAdUserInfoEdit(8, SessionData.currentUser.getWhatsUp(), SessionData.currentUser.isWhatsUpIsVisible());
+            }
+        });
+
+        btChangeVk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createAdUserInfoEdit(9, SessionData.currentUser.getVK(), SessionData.currentUser.isVKIsVisible());
+            }
+        });
+
+        btChangeFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createAdUserInfoEdit(10, SessionData.currentUser.getFacebook(), SessionData.currentUser.isFacebookIsVisible());
+            }
+        });
+
+        btChangeGooglePlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createAdUserInfoEdit(11, SessionData.currentUser.getGooglePlus(), SessionData.currentUser.isGooglePlusIsVisible());
             }
         });
     }
 
-    private void createAdUserInfoEdit(final int type, String value) {
-        String title = "Change Field";
-
-        switch (type) {
-            case 0:
-                title = "Change Name";
-                break;
-            case 1:
-                title = "Change Surname";
-                break;
-        }
-
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setTitle(title);
-
+    private void createAdUserInfoEdit(final int type, String value, boolean isChecked) {
         final EditText input = new EditText(this);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
@@ -195,7 +293,92 @@ public class MainActivity extends AppCompatActivity {
         input.setLayoutParams(lp);
         input.setText(value);
         input.setHint("Enter value...");
-        alertDialog.setView(input);
+
+        final CheckBox isVisibleCb = new CheckBox(this);
+        isVisibleCb.setText("Is Visible");
+        isVisibleCb.setChecked(isChecked);
+
+        LinearLayout llRoot = new LinearLayout(this);
+        llRoot.setOrientation(LinearLayout.VERTICAL);
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        String title = "Change Field";
+
+        switch (type) {
+            case 0:
+                title = "Change Name";
+                alertDialog.setView(input);
+                break;
+            case 1:
+                title = "Change Surname";
+                alertDialog.setView(input);
+                break;
+            case 3:
+                title = "Change phone";
+
+                llRoot.addView(input);
+                llRoot.addView(isVisibleCb);
+                alertDialog.setView(llRoot);
+                break;
+            case 4:
+                title = "Change Email";
+
+                llRoot.addView(input);
+                llRoot.addView(isVisibleCb);
+                alertDialog.setView(llRoot);
+                break;
+            case 5:
+                title = "Change Skype";
+
+                llRoot.addView(input);
+                llRoot.addView(isVisibleCb);
+                alertDialog.setView(llRoot);
+                break;
+            case 6:
+                title = "Change Telegram";
+
+                llRoot.addView(input);
+                llRoot.addView(isVisibleCb);
+                alertDialog.setView(llRoot);
+                break;
+            case 7:
+                title = "Change Viber";
+
+                llRoot.addView(input);
+                llRoot.addView(isVisibleCb);
+                alertDialog.setView(llRoot);
+                break;
+            case 8:
+                title = "Change WhatsUp";
+
+                llRoot.addView(input);
+                llRoot.addView(isVisibleCb);
+                alertDialog.setView(llRoot);
+                break;
+            case 9:
+                title = "Change VK";
+
+                llRoot.addView(input);
+                llRoot.addView(isVisibleCb);
+                alertDialog.setView(llRoot);
+                break;
+            case 10:
+                title = "Change Facebook";
+
+                llRoot.addView(input);
+                llRoot.addView(isVisibleCb);
+                alertDialog.setView(llRoot);
+                break;
+            case 11:
+                title = "Change GooglePlus";
+
+                llRoot.addView(input);
+                llRoot.addView(isVisibleCb);
+                alertDialog.setView(llRoot);
+                break;
+        }
+
+        alertDialog.setTitle(title);
 
         alertDialog.setPositiveButton("Change",
                 new DialogInterface.OnClickListener() {
@@ -209,6 +392,35 @@ public class MainActivity extends AppCompatActivity {
                             case 1:
                                 SessionData.currentUser.setLastName(note);
                                 break;
+                            case 3:
+                                SessionData.currentUser.setPhone(note);
+                                SessionData.currentUser.setPhoneIsVisible(isVisibleCb.isChecked());
+                                break;
+                            case 4:
+                                SessionData.currentUser.setEmail(note);
+                                SessionData.currentUser.setEmailIsVisible(isVisibleCb.isChecked());
+                                break;
+                            case 5:
+                                SessionData.currentUser.setSkype(note);
+                                SessionData.currentUser.setSkypeIsVisible(isVisibleCb.isChecked());
+                            case 6:
+                                SessionData.currentUser.setTelegram(note);
+                                SessionData.currentUser.setTelegramIsVisible(isVisibleCb.isChecked());
+                            case 7:
+                                SessionData.currentUser.setViber(note);
+                                SessionData.currentUser.setViberIsVisible(isVisibleCb.isChecked());
+                            case 8:
+                                SessionData.currentUser.setWhatsUp(note);
+                                SessionData.currentUser.setWhatsUpIsVisible(isVisibleCb.isChecked());
+                            case 9:
+                                SessionData.currentUser.setVK(note);
+                                SessionData.currentUser.setVKIsVisible(isVisibleCb.isChecked());
+                            case 10:
+                                SessionData.currentUser.setFacebook(note);
+                                SessionData.currentUser.setFacebookIsVisible(isVisibleCb.isChecked());
+                            case 11:
+                                SessionData.currentUser.setGooglePlus(note);
+                                SessionData.currentUser.setGooglePlusIsVisible(isVisibleCb.isChecked());
                         }
 
                         UpdateUserInfoAsyncTask updateUserInfoAsyncTask =
@@ -978,7 +1190,7 @@ public class MainActivity extends AppCompatActivity {
 
         public UpdateUserInfoAsyncTask(User user) {
             this.user = user;
-            }
+        }
 
         @Override
         protected void onPreExecute() {

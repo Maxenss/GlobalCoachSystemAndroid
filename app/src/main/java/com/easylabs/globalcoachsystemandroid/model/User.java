@@ -23,8 +23,17 @@ public class User {
     private int Age;
     private String FirstName;
     private String LastName;
+
     private boolean PhoneIsVisible;
     private boolean EmailIsVisible;
+    private boolean FacebookIsVisible;
+    private boolean GooglePlusIsVisible;
+    private boolean SkypeIsVisible;
+    private boolean VKIsVisible;
+    private boolean ViberIsVisible;
+    private boolean WhatsUpIsVisible;
+    private boolean TelegramIsVisible;
+
     private ArrayList<Language> Languages;
     private ArrayList<ArrayList<UserSpecialization>> UserSpecializations;
     public ArrayList<ArrayList<UserSpecialization>> studentsSpecialization;
@@ -49,6 +58,35 @@ public class User {
         LastName = lastName;
         PhoneIsVisible = phoneIsVisible;
         EmailIsVisible = emailIsVisible;
+        Languages = languages;
+    }
+
+    public User(int id, String login, String password, String email, String phone, String about, String facebook, String googlePlus, String skype, String VK, String viber, String whatsUp, String telegram, int age, String firstName, String lastName, boolean phoneIsVisible, boolean emailIsVisible, boolean facebookIsVisible, boolean googlePlusIsVisible, boolean skypeIsVisible, boolean VKIsVisible, boolean viberIsVisible, boolean whatsUpIsVisible, boolean telegramIsVisible, ArrayList<Language> languages) {
+        this.id = id;
+        Login = login;
+        Password = password;
+        Email = email;
+        Phone = phone;
+        About = about;
+        Facebook = facebook;
+        GooglePlus = googlePlus;
+        Skype = skype;
+        this.VK = VK;
+        Viber = viber;
+        WhatsUp = whatsUp;
+        Telegram = telegram;
+        Age = age;
+        FirstName = firstName;
+        LastName = lastName;
+        PhoneIsVisible = phoneIsVisible;
+        EmailIsVisible = emailIsVisible;
+        FacebookIsVisible = facebookIsVisible;
+        GooglePlusIsVisible = googlePlusIsVisible;
+        SkypeIsVisible = skypeIsVisible;
+        this.VKIsVisible = VKIsVisible;
+        ViberIsVisible = viberIsVisible;
+        WhatsUpIsVisible = whatsUpIsVisible;
+        TelegramIsVisible = telegramIsVisible;
         Languages = languages;
     }
 
@@ -194,6 +232,62 @@ public class User {
 
     public boolean isEmailIsVisible() {
         return EmailIsVisible;
+    }
+
+    public boolean isFacebookIsVisible() {
+        return FacebookIsVisible;
+    }
+
+    public void setFacebookIsVisible(boolean facebookIsVisible) {
+        FacebookIsVisible = facebookIsVisible;
+    }
+
+    public boolean isGooglePlusIsVisible() {
+        return GooglePlusIsVisible;
+    }
+
+    public void setGooglePlusIsVisible(boolean googlePlusIsVisible) {
+        GooglePlusIsVisible = googlePlusIsVisible;
+    }
+
+    public boolean isSkypeIsVisible() {
+        return SkypeIsVisible;
+    }
+
+    public void setSkypeIsVisible(boolean skypeIsVisible) {
+        SkypeIsVisible = skypeIsVisible;
+    }
+
+    public boolean isVKIsVisible() {
+        return VKIsVisible;
+    }
+
+    public void setVKIsVisible(boolean VKIsVisible) {
+        this.VKIsVisible = VKIsVisible;
+    }
+
+    public boolean isViberIsVisible() {
+        return ViberIsVisible;
+    }
+
+    public void setViberIsVisible(boolean viberIsVisible) {
+        ViberIsVisible = viberIsVisible;
+    }
+
+    public boolean isWhatsUpIsVisible() {
+        return WhatsUpIsVisible;
+    }
+
+    public void setWhatsUpIsVisible(boolean whatsUpIsVisible) {
+        WhatsUpIsVisible = whatsUpIsVisible;
+    }
+
+    public boolean isTelegramIsVisible() {
+        return TelegramIsVisible;
+    }
+
+    public void setTelegramIsVisible(boolean telegramIsVisible) {
+        TelegramIsVisible = telegramIsVisible;
     }
 
     public void setEmailIsVisible(boolean emailIsVisible) {
