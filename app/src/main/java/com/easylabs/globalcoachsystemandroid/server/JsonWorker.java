@@ -21,11 +21,11 @@ public class JsonWorker {
     // Метод для парсинга токена
 
     // Метод для парcинга пользователя
-    public static User getUserFromJson(JSONObject rootJson) {
+    public static User getUserFromJson(JSONObject rootJson, String jsonTitle) {
         User user = new User();
 
         try {
-            JSONObject userJson = rootJson.getJSONObject("user");
+            JSONObject userJson = rootJson.getJSONObject(jsonTitle);
 
             user.setId(userJson.getInt("id"));
             user.setLogin(userJson.getString("login"));

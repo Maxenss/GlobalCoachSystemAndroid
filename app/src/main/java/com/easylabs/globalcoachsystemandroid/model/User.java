@@ -35,9 +35,19 @@ public class User {
     private boolean TelegramIsVisible;
 
     private ArrayList<Language> Languages;
+
+    // Это то чему, хочет учиться юзер
     private ArrayList<ArrayList<UserSpecialization>> UserSpecializations;
+
+    // Студенты тренера
     public ArrayList<ArrayList<UserSpecialization>> studentsSpecialization;
+
+
     public ArrayList<Couch> masterSkills;
+
+    public StudentUser student = new StudentUser();
+
+    public CouchUser couch = new CouchUser();
 
     public User(int id, String login, String password, String email, String phone, String about, String facebook, String googlePlus, String skype, String VK, String viber, String whatsUp, String telegram, int age, String firstName, String lastName, boolean phoneIsVisible, boolean emailIsVisible, ArrayList<Language> languages) {
         this.id = id;

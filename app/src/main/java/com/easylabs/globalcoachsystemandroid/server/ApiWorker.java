@@ -22,7 +22,8 @@ import java.nio.channels.SeekableByteChannel;
 public class ApiWorker {
     static String protocol = "http://";
     //static String rootUrl = "wishlist-001-site1.itempurl.com/";
-    static String rootUrl = "192.168.0.103:43653/";
+   // static String rootUrl = "192.168.0.104:43653/";
+    static String rootUrl = "maxens-002-site3.ctempurl.com/";
 
     public enum SignUpStatus {
         DATA_ERROR(0), NOT_CONNECt(1), CREATE_ACCOUNT(2), LOGIN_EXIST_ERROR(3), UNKNOWN_ERROR(4);
@@ -154,7 +155,7 @@ public class ApiWorker {
 
             // Парсим данные
             SessionData.token = jsonObject.getString("token");
-            SessionData.currentUser = JsonWorker.getUserFromJson(jsonObject);
+            SessionData.currentUser = JsonWorker.getUserFromJson(jsonObject, "user");
             System.out.println("User Login: " + SessionData.currentUser.getLogin());
 
             return SignInStatus.LOGIN_ACCOUNT;
@@ -679,6 +680,124 @@ public class ApiWorker {
            // JSONArray jsonRoot = new JSONArray(response);
            // // Парсим json
            // SessionData.newStudentsRequestList = JsonWorker.getNewStudentsFromJson(jsonRoot);
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean getStudentSpec(int userSpecsId) {
+        // Адрес по которому мы шлем запрос
+        String myURL = protocol + rootUrl + "api/couches/getSpecsInfo/specsId=" + userSpecsId;
+        // Массив байтов, ответ от сервера
+        byte[] data = null;
+        // Входящий поток данных от сервера
+        InputStream is = null;
+        // Флаг, указываюший на то, корректно прошел запрос или нет
+        boolean isCorrect = true;
+
+        try {
+            // Создаем объект класса URL
+            URL url = new URL(myURL);
+            // На url открываем соединение, соеденение с сервером
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            // Указываем тип запроса
+            conn.setRequestMethod("GET");
+            // Указываем, что мы ожидаем получить ответ от сервера
+            conn.setDoInput(true);
+            // Указываем заголовки запроса
+            conn.setRequestProperty("Authorization", "Bearer " + SessionData.token);
+            // Обнуляем массив data
+            data = null;
+            // ОТправлеям запрос
+            conn.connect();
+            // Получаем код ответа от сервера
+            int responseCode = conn.getResponseCode();
+            // Создаем поток исходящий данные
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            // Получяем данные от сервера, сохраняем их в потоке
+            is = conn.getInputStream();
+            // Создаём буффер, для записи данных из потока, в буффер
+            byte[] buffer = new byte[8192]; // Такого вот размера буфер
+            // Далее, например, вот так читаем ответ
+            int bytesRead;
+            // Читаем данные из потока входящих от сервера данных
+            // и записываем их в другой поток
+            while ((bytesRead = is.read(buffer)) != -1) {
+                baos.write(buffer, 0, bytesRead);
+            }
+            // Поток, с данными, преобразовываем к массиву байтов
+            data = baos.toByteArray();
+            // Ответ от сервера, перегоняем из байтов в строку
+            String response = new String(data);
+
+            System.out.println("getStudentSpecs Response: " + response);
+            // Из ответа от сервер формируем json-объект
+            JSONObject jsonRoot = new JSONObject(response);
+
+            SessionData.currentUser.couch.currentStudent =
+                    JsonWorker.getUserFromJson(jsonRoot, "student");
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean getCouchSpec(int userSpecsId) {
+        // Адрес по которому мы шлем запрос
+        String myURL = protocol + rootUrl + "api/UserSpecializations/getSpecsInfo/specsId=" + userSpecsId;
+        // Массив байтов, ответ от сервера
+        byte[] data = null;
+        // Входящий поток данных от сервера
+        InputStream is = null;
+        // Флаг, указываюший на то, корректно прошел запрос или нет
+        boolean isCorrect = true;
+
+        try {
+            // Создаем объект класса URL
+            URL url = new URL(myURL);
+            // На url открываем соединение, соеденение с сервером
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            // Указываем тип запроса
+            conn.setRequestMethod("GET");
+            // Указываем, что мы ожидаем получить ответ от сервера
+            conn.setDoInput(true);
+            // Указываем заголовки запроса
+            conn.setRequestProperty("Authorization", "Bearer " + SessionData.token);
+            // Обнуляем массив data
+            data = null;
+            // ОТправлеям запрос
+            conn.connect();
+            // Получаем код ответа от сервера
+            int responseCode = conn.getResponseCode();
+            // Создаем поток исходящий данные
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            // Получяем данные от сервера, сохраняем их в потоке
+            is = conn.getInputStream();
+            // Создаём буффер, для записи данных из потока, в буффер
+            byte[] buffer = new byte[8192]; // Такого вот размера буфер
+            // Далее, например, вот так читаем ответ
+            int bytesRead;
+            // Читаем данные из потока входящих от сервера данных
+            // и записываем их в другой поток
+            while ((bytesRead = is.read(buffer)) != -1) {
+                baos.write(buffer, 0, bytesRead);
+            }
+            // Поток, с данными, преобразовываем к массиву байтов
+            data = baos.toByteArray();
+            // Ответ от сервера, перегоняем из байтов в строку
+            String response = new String(data);
+
+            System.out.println("getStudentSpecs Response: " + response);
+            // Из ответа от сервер формируем json-объект
+            JSONObject jsonRoot = new JSONObject(response);
+
+            SessionData.currentUser.student.currentCouch =
+                    JsonWorker.getUserFromJson(jsonRoot, "couch");
 
             return true;
         } catch (Exception e) {

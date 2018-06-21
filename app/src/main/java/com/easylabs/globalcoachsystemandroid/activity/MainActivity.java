@@ -180,30 +180,33 @@ public class MainActivity extends AppCompatActivity {
                 "Empty Field"
                 : SessionData.currentUser.getTelegram()));
 
-        ivPhoneVIsible.setBackgroundResource(
+        ivPhoneVIsible.setImageResource(
                 SessionData.currentUser.isPhoneIsVisible()
                         ? R.drawable.eye_outline : R.drawable.eye_off_outline
         );
 
-        ivSkypeIsVisible.setBackgroundResource(SessionData.currentUser.isPhoneIsVisible()
+        ivEmailIsVisible.setImageResource(SessionData.currentUser.isEmailIsVisible()
                 ? R.drawable.eye_outline : R.drawable.eye_off_outline);
 
-        ivTelegramIsVisible.setBackgroundResource(SessionData.currentUser.isTelegramIsVisible()
+        ivSkypeIsVisible.setImageResource(SessionData.currentUser.isSkypeIsVisible()
                 ? R.drawable.eye_outline : R.drawable.eye_off_outline);
 
-        ivViberIsVisible.setBackgroundResource(SessionData.currentUser.isViberIsVisible()
+        ivTelegramIsVisible.setImageResource(SessionData.currentUser.isTelegramIsVisible()
                 ? R.drawable.eye_outline : R.drawable.eye_off_outline);
 
-        ivWhatsUpIsVisible.setBackgroundResource(SessionData.currentUser.isWhatsUpIsVisible()
+        ivViberIsVisible.setImageResource(SessionData.currentUser.isViberIsVisible()
                 ? R.drawable.eye_outline : R.drawable.eye_off_outline);
 
-        ivVkIsVisible.setBackgroundResource(SessionData.currentUser.isViberIsVisible()
+        ivWhatsUpIsVisible.setImageResource(SessionData.currentUser.isWhatsUpIsVisible()
                 ? R.drawable.eye_outline : R.drawable.eye_off_outline);
 
-        ivFacebookIsVisible.setBackgroundResource(SessionData.currentUser.isFacebookIsVisible()
+        ivVkIsVisible.setImageResource(SessionData.currentUser.isVKIsVisible()
                 ? R.drawable.eye_outline : R.drawable.eye_off_outline);
 
-        ivGooglePlusIsVisible.setBackgroundResource(SessionData.currentUser.isGooglePlusIsVisible()
+        ivFacebookIsVisible.setImageResource(SessionData.currentUser.isFacebookIsVisible()
+                ? R.drawable.eye_outline : R.drawable.eye_off_outline);
+
+        ivGooglePlusIsVisible.setImageResource(SessionData.currentUser.isGooglePlusIsVisible()
                 ? R.drawable.eye_outline : R.drawable.eye_off_outline);
 
         btChangeName.setOnClickListener(new View.OnClickListener() {
@@ -403,24 +406,31 @@ public class MainActivity extends AppCompatActivity {
                             case 5:
                                 SessionData.currentUser.setSkype(note);
                                 SessionData.currentUser.setSkypeIsVisible(isVisibleCb.isChecked());
+                                break;
                             case 6:
                                 SessionData.currentUser.setTelegram(note);
                                 SessionData.currentUser.setTelegramIsVisible(isVisibleCb.isChecked());
+                                break;
                             case 7:
                                 SessionData.currentUser.setViber(note);
                                 SessionData.currentUser.setViberIsVisible(isVisibleCb.isChecked());
+                                break;
                             case 8:
                                 SessionData.currentUser.setWhatsUp(note);
                                 SessionData.currentUser.setWhatsUpIsVisible(isVisibleCb.isChecked());
+                                break;
                             case 9:
                                 SessionData.currentUser.setVK(note);
                                 SessionData.currentUser.setVKIsVisible(isVisibleCb.isChecked());
+                                break;
                             case 10:
                                 SessionData.currentUser.setFacebook(note);
                                 SessionData.currentUser.setFacebookIsVisible(isVisibleCb.isChecked());
+                                break;
                             case 11:
                                 SessionData.currentUser.setGooglePlus(note);
                                 SessionData.currentUser.setGooglePlusIsVisible(isVisibleCb.isChecked());
+                                break;
                         }
 
                         UpdateUserInfoAsyncTask updateUserInfoAsyncTask =
@@ -785,6 +795,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
                 if (i == 1 || i == 2) {
+                    SessionData.currentUser.student.currentUserSpec =
+                            SessionData.currentUser.getUserSpecializations().get(i).get(i1);
+
                     Intent intent = new Intent(MainActivity.this, CouchActivity.class);
                     startActivity(intent);
                 }
@@ -896,6 +909,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
                 if (i == 0 || i == 1) {
+                    SessionData.currentUser.couch.currentUserSpec =
+                            SessionData.currentUser.studentsSpecialization.get(i).get(i1);
+
                     Intent intent = new Intent(MainActivity.this, StudentActivity.class);
                     startActivity(intent);
                 }
